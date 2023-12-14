@@ -6,7 +6,7 @@
 /*   By: rparodi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 17:27:44 by rparodi           #+#    #+#             */
-/*   Updated: 2023/11/16 12:14:01 by rparodi          ###   ########.fr       */
+/*   Updated: 2023/12/14 18:17:22 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_check_args(char c, va_list args, int *ret_value)
 int	ft_printf(const char *s, ...)
 {
 	size_t	i;
-	int		nb_flag;
 	va_list	args;
 	char	*str;
 	int		ret_value;
@@ -49,12 +48,11 @@ int	ft_printf(const char *s, ...)
 	str = ft_strdup(s);
 	va_start(args, s);
 	i = 0;
-	nb_flag = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			nb_flag += ft_check_args(str[i + 1], args, &ret_value);
+			ft_check_args(str[i + 1], args, &ret_value);
 			i++;
 		}
 		else

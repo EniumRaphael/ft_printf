@@ -6,12 +6,12 @@
 #    By: rparodi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 11:05:05 by rparodi           #+#    #+#              #
-#    Updated: 2023/11/24 16:24:21 by rparodi          ###   ########.fr        #
+#    Updated: 2023/12/14 18:16:54 by raphael          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftprintf.a
-CC=cc
+CC=clang
 CFLAGS=-Wall -Wextra -Werror
 RM=rm -f
 LIBFT = ./libft/ft_strdup.c ./libft/ft_strlcpy.c ./libft/ft_strlen.c
