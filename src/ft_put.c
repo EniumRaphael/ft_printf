@@ -6,7 +6,7 @@
 /*   By: rparodi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:13:14 by rparodi           #+#    #+#             */
-/*   Updated: 2023/11/16 12:14:35 by rparodi          ###   ########.fr       */
+/*   Updated: 2023/12/23 17:33:46 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_putnbr_base(\
 	{
 		if (nbr != 0)
 			ft_putstr("0x", ret_value);
-		if (nbr == 0)
+		else if (nbr == 0)
 		{
 			ft_putstr("(nil)", ret_value);
 			return ;

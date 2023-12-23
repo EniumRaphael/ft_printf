@@ -6,7 +6,7 @@
 #    By: rparodi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 11:05:05 by rparodi           #+#    #+#              #
-#    Updated: 2023/12/14 18:16:54 by raphael          ###   ########.fr        #
+#    Updated: 2023/12/23 17:35:10 by raphael          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,39 +26,39 @@ GOLD = \033[38;5;220m
 END = \033[0m
 
 header:
-		@echo -e '\n\n'
-		@echo -e '$(GOLD)            *******     *****  ******* $(END)'
-		@echo -e '$(GOLD)          ******        ***    ******* $(END)'
-		@echo -e '$(GOLD)      *******                 ******* $(END)'
-		@echo -e '$(GOLD)     ******                 ******* $(END)'
-		@echo -e '$(GOLD)  *******                 ******* $(END)'
-		@echo -e '$(GOLD) ********************   *******      * $(END)'
-		@echo -e '$(GOLD) ********************   *******    *** $(END)'
-		@echo -e '$(GOLD)              *******   ******* ****** $(END)'
-		@echo -e '$(GOLD)              ******* $(END)'
-		@echo -e '$(GOLD)              ******* $(END)\n'
-		@echo -e '$(GREY)                                      Made by rparodi$(END)\n\n'
+		@printf '\n\n'
+		@printf '$(GOLD)            *******     *****  ******* $(END)\n'
+		@printf '$(GOLD)          ******        ***    ******* $(END)\n'
+		@printf '$(GOLD)      *******                 ******* $(END)\n'
+		@printf '$(GOLD)     ******                 ******* $(END)\n'
+		@printf '$(GOLD)  *******                 ******* $(END)\n'
+		@printf '$(GOLD) ********************   *******      * $(END)\n'
+		@printf '$(GOLD) ********************   *******    *** $(END)\n'
+		@printf '$(GOLD)              *******   ******* ****** $(END)\n'
+		@printf '$(GOLD)              ******* $(END)\n'
+		@printf '$(GOLD)              ******* $(END)\n\n'
+		@printf '$(GREY)                                      Made by rparodi$(END)\n\n\n'
 
 $(NAME): $(OBJ) $(OBJLibft)
-		@echo -e '$(GREY) Compiling $(END)$(GOLD)$(NAME)$(END)'
+		@printf '$(GREY) Compiling $(END)$(GOLD)$(NAME)$(END)\n'
 		@ar rc $(NAME) $(OBJ) $(OBJLibft)
 		@ranlib $(NAME)
 
 %.o: %.c
-		@echo -e '$(GREY) Compiling $(END)$(GREEN)$<$(END)'
+		@printf '$(GREY) Compiling $(END)$(GREEN)$<$(END)\n'
 		@$(CC) -I. -o $@ -c $? $(CFLAGS)
 
 all: header $(NAME)
-		@echo -e '\n$(GREY) Compilation $(GREEN)Done'
+		@printf '\n$(GREY) Compilation $(GREEN)Done\n'
 
 dev: all bonus clean
 
 clean:
-		@echo -e '$(GREY) Removing $(END)$(RED)Object$(END)'
+		@printf '$(GREY) Removing $(END)$(RED)Object$(END)\n'
 		@$(RM) $(OBJ) $(OBJLibft)
 
 fclean: clean
-		@echo -e '$(GREY) Removing $(END)$(RED)Program$(END)'
+		@printf '$(GREY) Removing $(END)$(RED)Program$(END)\n'
 		@$(RM) $(NAME)
 
 re: fclean all
