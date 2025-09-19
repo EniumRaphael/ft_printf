@@ -25,6 +25,13 @@ typedef struct s_format
 	t_func	function;
 }			t_format;
 
+/**
+ * @brief Computes the length of a string.
+ *
+ * @param s The input string.
+ *
+ * @return The number of characters in the string `s`.
+ */
 size_t	ft_strlen(const char *str);
 
 char	*itoa_base(uint64_t nbr, char *base);
