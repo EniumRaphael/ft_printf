@@ -14,6 +14,7 @@
             c_formatter_42.packages.${system}.default
             pkgs.clang
             pkgs.clang-tools
+            pkgs.lldb
             pkgs.fastmod
             pkgs.norminette
             pkgs.tree
