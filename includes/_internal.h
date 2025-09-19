@@ -34,6 +34,13 @@ typedef struct s_format
  */
 size_t	ft_strlen(const char *str);
 
+/**
+ * @brief Function to convert a number to an other base
+ *
+ * @param nbr number to convert
+ * @param base base to convert in
+ * @return the string with the number converted
+ */
 char	*itoa_base(uint64_t nbr, char *base);
 
 int		flag_c(va_list args, int fd);
