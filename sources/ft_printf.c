@@ -21,6 +21,31 @@ static int	print_buff(int fd, const char *s, size_t start, size_t end)
 	return (write(fd, s + start, (end - start)));
 }
 
+static int	flag_managenent(int fd, char flag, va_list args)
+{
+	size_t			i;
+	const t_format	flags[] = {
+	{'c', flag_c},
+	{'d', flag_i},
+	{'p', flag_p},
+	{'u', flag_u},
+	{'%', flag_percent},
+	{'i', flag_i},
+	{'s', flag_s},
+	{'x', flag_x},
+	{'X', flag_x_maj},
+	};
+
+	i = 0;
+	while (flags[i].character)
+	{
+		if (flags[i].character == flag)
+			return (flags[i].function(args, fd));
+		i++;
+	}
+	return (-1);
+}
+
 int	ft_vdprintf(int fd, const char *s, va_list args)
 {
 	size_t	i;
