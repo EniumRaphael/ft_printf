@@ -6,7 +6,7 @@
 /*   By: rparodi <rparodi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 15:34:52 by rparodi           #+#    #+#             */
-/*   Updated: 2025/09/19 16:45:11 by rparodi          ###   ########.fr       */
+/*   Updated: 2025/09/19 16:52:30 by rparodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-static size_t	ft_nbrlen(u_int64_t nbr, size_t base_len)
+static size_t	ft_nbrlen(uint64_t nbr, size_t base_len)
 {
 	size_t	len;
 
@@ -75,7 +75,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (to_return);
 }
 
-char	*itoa_base(u_int64_t nbr, char *base)
+char	*itoa_base(uint64_t nbr, char *base)
 {
 	size_t	base_len;
 	size_t	nbr_len;
