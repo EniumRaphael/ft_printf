@@ -6,7 +6,7 @@
 /*   By: rparodi <rparodi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 15:34:52 by rparodi           #+#    #+#             */
-/*   Updated: 2025/09/19 15:53:15 by rparodi          ###   ########.fr       */
+/*   Updated: 2025/09/19 16:45:11 by rparodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,22 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *str)
+static size_t	ft_nbrlen(u_int64_t nbr, size_t base_len)
 {
-	size_t	i;
+	size_t	len;
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (nbr == 0)
+		return (1);
+	len = 0;
+	while (nbr > 0)
+	{
+		nbr /= base_len;
+		len++;
+	}
+	return (len);
 }
 
-void	*ft_memset(void *s, int c, size_t n)
+static void	*ft_memset(void *s, int c, size_t n)
 {
 	char	*str;
 	size_t	i;
@@ -40,6 +43,18 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	return (str);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -58,21 +73,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	else
 		ft_memset(to_return, 0, nmemb * size);
 	return (to_return);
-}
-
-static size_t	ft_nbrlen(u_int64_t nbr, size_t base_len)
-{
-	size_t	len;
-
-	if (nbr == 0)
-		return (1);
-	len = 0;
-	while (nbr > 0)
-	{
-		nbr /= base_len;
-		len++;
-	}
-	return (len);
 }
 
 char	*itoa_base(u_int64_t nbr, char *base)
