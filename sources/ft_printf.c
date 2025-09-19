@@ -6,11 +6,11 @@
 /*   By: rparodi <rparodi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:44:34 by rparodi           #+#    #+#             */
-/*   Updated: 2025/09/19 15:35:38 by rparodi          ###   ########.fr       */
+/*   Updated: 2025/09/19 17:17:12 by rparodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "_internal.h"
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>

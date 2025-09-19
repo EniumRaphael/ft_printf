@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "_internal.h"
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
