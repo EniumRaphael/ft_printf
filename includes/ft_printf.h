@@ -17,7 +17,13 @@
 # include <stddef.h>
 # include <stdint.h>
 
+typedef int	(*t_func)(va_list, int fd);
 
+typedef struct s_format
+{
+	char	character;
+	t_func	function;
+}			t_format;
 
 size_t	ft_strlen(const char *str);
 void	ft_putnbr_base(int fd, u_int64_t nbr, char *base, int *to_ret);
