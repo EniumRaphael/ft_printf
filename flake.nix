@@ -20,5 +20,9 @@
             pkgs.tree
           ] ++ (if pkgs.stdenv.isLinux then [ pkgs.valgrind ] else [ ]);
         };
+        shellHook = ''
+          export CC=${pkgs.clang}
+          printf "\n\033[0;90mC env loaded for: \033[38;5;220m${system}\033[0m\n"
+        '';
       });
 }
