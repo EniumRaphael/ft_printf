@@ -43,6 +43,13 @@ size_t	ft_strlen(const char *str);
  */
 char	*itoa_base(uint64_t nbr, char *base);
 
+/**
+ * @brief Function to handle the flag c in printf's function
+ *
+ * @param args list of arguments
+ * @param fd file descriptor
+ * @return The number of character write in the fd (always 1)
+ */
 int		flag_c(va_list args, int fd);
 
 int		flag_i(va_list args, int fd);
