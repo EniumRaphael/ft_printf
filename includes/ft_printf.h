@@ -6,7 +6,7 @@
 /*   By: rparodi <rparodi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:42:12 by rparodi           #+#    #+#             */
-/*   Updated: 2025/09/19 15:53:37 by rparodi          ###   ########.fr       */
+/*   Updated: 2025/09/19 17:15:34 by rparodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,32 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stddef.h>
-# include <stdint.h>
 
-typedef int	(*t_func)(va_list, int fd);
-
-typedef struct s_format
-{
-	char	character;
-	t_func	function;
-}			t_format;
-
-size_t	ft_strlen(const char *str);
-void	ft_putnbr_base(int fd, uint64_t nbr, char *base, int *to_ret);
-char	*itoa_base(uint64_t nbr, char *base);
-int		flag_c(va_list args, int fd);
+/**
+ * @brief Write an output with format in the fd given in parameter
+ *
+ * @param fd file descriptor where the fd will be write
+ * @param s The format string
+ * @return The number of character write in the fd
+ */
 int		ft_dprintf(int fd, const char *s, ...);
+
+/**
+ * @brief Write an output with format in the stdout
+ *
+ * @param s The format string
+ * @return The number of character write in the stdout
+ */
 int		ft_printf(const char *s, ...);
-int		flag_i(va_list args, int fd);
-int		flag_p(va_list args, int fd);
-int		flag_percent(va_list args, int fd);
-int		flag_s(va_list args, int fd);
-int		flag_u(va_list args, int fd);
-int		flag_x(va_list args, int fd);
-int		flag_x_maj(va_list args, int fd);
+
+/**
+ * @brief Write an output with the format in the fd given and the va_list
+ *
+ * @param fd file descriptor where the fd will be write
+ * @param s The format string
+ * @param args Arguments to pass to the format string
+ * @return 
+ */
+int		ft_vdprintf(int fd, const char *s, va_list args);
 
 #endif
