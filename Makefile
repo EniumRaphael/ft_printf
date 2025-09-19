@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rparodi <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: rparodi <rparodi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/12 11:05:05 by rparodi           #+#    #+#              #
-#    Updated: 2025/09/17 17:39:49 by rparodi          ###   ########.fr        #
+#    Created: 2025/09/18 17:28:18 by rparodi           #+#    #+#              #
+#    Updated: 2025/09/19 16:07:44 by rparodi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ RM = rm -rf
 
 # Flags
 CFLAGS = -Werror -Wextra -Wall
+# CFLAGS += -g
 
 INC_DIR = includes
 CPPFLAGS = $(addprefix -I, $(INC_DIR)) -MMD -MP
@@ -30,7 +31,10 @@ CPPFLAGS = $(addprefix -I, $(INC_DIR)) -MMD -MP
 OBJDIRNAME = ./build
 OBJ = $(addprefix $(OBJDIRNAME)/,$(SRC:.c=.o))
 
-SRC =
+SRC =	sources/print_char.c \
+		sources/utils.c \
+		sources/print_number.c \
+		sources/ft_printf.c
 
 # Colors
 GREEN = \033[32m
@@ -43,8 +47,6 @@ END = \033[0m
 
 # All (make all)
 all: header $(NAME) footer
-
-lib: $(NAME)
 
 # Bonus (make bonus)
 bonus: header $(OBJ) $(LIB_OBJ) footer
