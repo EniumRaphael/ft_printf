@@ -1,0 +1,28 @@
+{
+  description = "Flake for 42 C";
+
+  inputs = {
+    flake-utils.url = "github:numtide/flake-utils";
+    c_formatter_42.url = "github:maix-flake/c_formatter_42";
+  };
+  outputs = { self, nixpkgs, flake-utils, c_formatter_42 }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        devShell = pkgs.mkShell {
+          packages = [
+            c_formatter_42.packages.${system}.default
+            pkgs.clang
+            pkgs.clang-tools
+            pkgs.lldb
+            pkgs.fastmod
+            pkgs.norminette
+            pkgs.tree
+          ] ++ (if pkgs.stdenv.isLinux then [ pkgs.valgrind ] else [ ]);
+        };
+        shellHook = ''
+          export CC=${pkgs.clang}
+          printf "\n\033[0;90mC env loaded for: \033[38;5;220m${system}\033[0m\n"
+        '';
+      });
+}
