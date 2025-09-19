@@ -106,6 +106,13 @@ int		flag_u(va_list args, int fd);
  */
 int		flag_x(va_list args, int fd);
 
+/**
+ * @brief Function to handle the flag X in printf's function
+ *
+ * @param args list of arguments
+ * @param fd file descriptor
+ * @return The number of character write in the fd (always 1)
+ */
 int		flag_x_maj(va_list args, int fd);
 
 #endif
