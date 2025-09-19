@@ -26,8 +26,8 @@ typedef struct s_format
 }			t_format;
 
 size_t	ft_strlen(const char *str);
-void	ft_putnbr_base(int fd, u_int64_t nbr, char *base, int *to_ret);
-char	*itoa_base(u_int64_t nbr, char *base);
+void	ft_putnbr_base(int fd, uint64_t nbr, char *base, int *to_ret);
+char	*itoa_base(uint64_t nbr, char *base);
 int		flag_c(va_list args, int fd);
 int		ft_dprintf(int fd, const char *s, ...);
 int		ft_printf(const char *s, ...);

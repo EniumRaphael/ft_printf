@@ -20,7 +20,7 @@ int	flag_p(va_list args, int fd)
 {
 	char		*to_print;
 	int			to_ret;
-	u_int64_t	number;
+	uint64_t	number;
 
 	number = va_arg(args, unsigned long long);
 	to_ret = 0;
