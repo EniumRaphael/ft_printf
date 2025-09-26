@@ -6,7 +6,7 @@
 #    By: rparodi <rparodi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 17:28:18 by rparodi           #+#    #+#              #
-#    Updated: 2025/09/19 16:07:44 by rparodi          ###   ########.fr        #
+#    Updated: 2025/09/27 00:04:52 by rparodi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@
 
 # Name
 NAME = libftprintf.a
+PROJECT = printf
 
 # Commands
 CC ?= clang
@@ -113,6 +114,16 @@ footer:
 		@printf "$(GOLD)                  \\| |._.| |/-\`$(END)\n"
 		@printf "$(GOLD)                   '\"'   '\"'$(END)\n"
 		@printf '              $(GREY)The compilation is$(END) $(GOLD)finished$(END)\n               $(GREY)Have a good $(END)$(GOLD)correction !$(END)\n'
+
+tmux:
+	@tmux new-session -d -s $(PROJECT)
+	@tmux send-keys -t $(PROJECT):0 'vim' C-m
+	@tmux split-window -h -t $(PROJECT):0
+	@tmux resize-pane -t $(PROJECT):0.0 -x 70
+	@tmux new-window -t $(PROJECT):1 -n 'lazygit'
+	@tmux send-keys -t $(PROJECT):1 'lazygit' C-m
+	@tmux select-window -t $(PROJECT):0
+	@tmux attach-session -t $(PROJECT)
 
 clangd:
 	@printf "CompileFlags:\n" > ./.clangd
